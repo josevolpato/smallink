@@ -1,5 +1,8 @@
+require "securerandom"
+
 class LinksController < ApplicationController
-  before_action :set_link, only: %i[ show edit update destroy ]
+  before_action :set_link, only: %i[ show ]
+  before_action :set_link_follow, only: %i[ follow ]
 
   # GET /links or /links.json
   def index
@@ -8,6 +11,14 @@ class LinksController < ApplicationController
 
   # GET /links/1 or /links/1.json
   def show
+  end
+
+  def follow
+    if !@link.nil?
+      redirect_to "https://" + @link.url, allow_other_host: true
+    else
+      render file: "#{Rails.root}/public/404.html", status: :not_found, layout: false
+    end
   end
 
   # GET /links/new
@@ -22,6 +33,7 @@ class LinksController < ApplicationController
   # POST /links or /links.json
   def create
     @link = Link.new(link_params)
+    @link.shortened = generate_shortened
 
     respond_to do |format|
       if @link.save
@@ -48,14 +60,14 @@ class LinksController < ApplicationController
   end
 
   # DELETE /links/1 or /links/1.json
-  def destroy
-    @link.destroy!
+  # def destroy
+  #   @link.destroy!
 
-    respond_to do |format|
-      format.html { redirect_to links_path, notice: "Link was successfully destroyed.", status: :see_other }
-      format.json { head :no_content }
-    end
-  end
+  #   respond_to do |format|
+  #     format.html { redirect_to links_path, notice: "Link was successfully destroyed.", status: :see_other }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -63,8 +75,16 @@ class LinksController < ApplicationController
       @link = Link.find(params.expect(:id))
     end
 
+    def set_link_follow
+      @link = Link.where(shortened: params.expect(:shortened)).first
+    end
+
     # Only allow a list of trusted parameters through.
     def link_params
-      params.expect(link: [ :shortened, :url ])
+      params.expect(link: [ :url ])
+    end
+
+    def generate_shortened
+      SecureRandom.alphanumeric(8)
     end
 end

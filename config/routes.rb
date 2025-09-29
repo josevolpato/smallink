@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :links
+  get "/", to: "links#new"
+  post "/", to: "links#create"
+  get "/links/:id", to: "links#show", as: "link"
+  get "/:shortened", to: "links#follow"
+
+  # resources :links
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
