@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get "/", to: "links#new"
-  post "/", to: "links#create"
-  get "/links/:id", to: "links#show", as: "link"
-  get "/:shortened", to: "links#follow"
-
   # resources :links
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -17,4 +12,16 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # Tela de criacao de links encurtados
+  get "/", to: "links#new"
+
+  # Insercao de novos links encurtados
+  post "/", to: "links#create"
+
+  # Visualizacao de link encurtado
+  get "/links/:id", to: "links#show", as: "link"
+
+  # Redirecionador de link encurtado
+  get "/:shortened", to: "links#follow"
 end
