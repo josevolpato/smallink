@@ -9,7 +9,7 @@
  * Consider organizing styles into separate files for maintainability.
  */
 #link_data {
-    width: 1000px;
+    width: 866px;
     margin: 0 auto;
 }
 
@@ -25,13 +25,26 @@
     width: 800px;
     height: 40px;
     font-size: 32px;
-    padding: 5px;
-    border-radius: 20px;
+    padding: 6px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     vertical-align: middle;
 }
 
 #link_submit {
-    height: 50px;
+    height: 56px;
     width: 50px;
     margin: 0px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    vertical-align: middle;
+    border-left-width: 0px;
+}
+
+#link_message {
+    display: inline;
+}
+
+#link_copy {
+    vertical-align: middle;
 }

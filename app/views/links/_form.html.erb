@@ -1,14 +1,24 @@
+<script type="text/javascript">
+function copyToClipboard() {
+  var copyText = document.getElementById("link_generated").innerHTML;
+
+  navigator.clipboard.writeText(copyText);
+
+  alert("Link copiado para área de transferência.");
+}
+</script>
+
 <%= form_with(model: link, url: "/", method: :post) do |form| %>
 
   <div id="link_data" >
     <%= form.label :url, style: "display: block", id: "link_label" %>
-    <%= form.text_field :url %>
-    <%= form.submit value: "C", id: "link_submit" %>
+    <%= form.text_field :url %><%= form.submit value: "C", id: "link_submit" %>
   </div>
 
   <% if !link.shortened.nil? %>
     <div>
-      <p style="color: green"><%= @notice %><%= link.shortened %></p>
+      <p id="link_message" style="color: green"><%= notice %><a id="link_generated" href="<%= request.base_url + "/" + link.shortened %>" target="_blank"><%= request.base_url + "/" + link.shortened %></a></p>
+      <%= image_tag "copy.png", id: "link_copy", size: "16x16", onclick: "copyToClipboard();" %>
     </div>
   <% end %>
 
