@@ -1,4 +1,11 @@
 <%= form_with(model: link, url: "/", method: :post) do |form| %>
+
+  <div id="link_data" >
+    <%= form.label :url, style: "display: block", id: "link_label" %>
+    <%= form.text_field :url %>
+    <%= form.submit value: "C", id: "link_submit" %>
+  </div>
+
   <% if link.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(link.errors.count, "error") %> prohibited this link from being saved:</h2>
@@ -11,12 +18,4 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :url, style: "display: block" %>
-    <%= form.text_field :url %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>

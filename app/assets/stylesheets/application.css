@@ -8,3 +8,30 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+#link_data {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.field_with_errors {
+    display: inline;
+}
+
+#link_label {
+    font-size: 28px;
+}
+
+#link_url {
+    width: 800px;
+    height: 40px;
+    font-size: 32px;
+    padding: 5px;
+    border-radius: 20px;
+    vertical-align: middle;
+}
+
+#link_submit {
+    height: 50px;
+    width: 50px;
+    margin: 0px;
+}
