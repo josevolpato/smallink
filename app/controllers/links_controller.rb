@@ -27,10 +27,6 @@ class LinksController < ApplicationController
     end
   end
 
-  # GET /links/1 or /links/1.json
-  def show
-  end
-
   # GET /hX9KQZ8i
   def follow
     if !@link.nil?
@@ -38,11 +34,6 @@ class LinksController < ApplicationController
     else
       render file: "#{Rails.root}/public/404.html", status: :not_found, layout: false
     end
-  end
-
-  # GET /links or /links.json
-  def index
-    @links = Link.all
   end
 
   private

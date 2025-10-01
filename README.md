@@ -1,24 +1,16 @@
-# README
+# Smallink
+English | [Español](LEEME.md) | [Português brasileiro](LEIAME.md)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+URL shortener implemented in Ruby on Rails 8 as simply as possible.
 
-Things you may want to cover:
+## Building and running the application
+1. Install [ruby](https://www.ruby-lang.org/pt/downloads/)
+2. Configure [Ruby on Rails](https://guides.rubyonrails.org/install_ruby_on_rails.html)
+3. Move the command prompt to the project folder and run this line to install all dependencies: <br/>
+`bundle install`
+4. Run the application server: <br/>
+`rails server`
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License
+![license](https://img.shields.io/badge/license-GLP-green)
