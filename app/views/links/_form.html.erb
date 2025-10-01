@@ -2,13 +2,13 @@
 
   <div id="link_data" >
     <%= form.label :url, style: "display: block", id: "link_label" %>
-    <%= form.text_field :url %><%= form.submit value: "C", id: "link_submit" %>
+    <%= form.text_field :url %><%= form.submit value: "", id: "link_submit" %>
   </div>
 
   <% if !link.shortened.nil? %>
-    <div data-controller="clipboard">
+    <div id="link_url_result" data-controller="clipboard">
       <p id="link_message" style="color: green"><%= notice %><a id="link_generated" href="<%= request.base_url + "/" + link.shortened %>" target="_blank"><%= request.base_url + "/" + link.shortened %></a></p>
-      <%= image_tag "copy.png", alt: "Copiar link", id: "link_copy", size: "16x16", data: { action: "click->clipboard#copyToClipboard" }  %>
+      <%= image_tag "copy.png", alt: "Copiar link", id: "link_copy", size: "32x32", data: { action: "click->clipboard#copyToClipboard" }  %>
     </div>
   <% end %>
 

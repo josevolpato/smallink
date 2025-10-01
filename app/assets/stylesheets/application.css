@@ -39,12 +39,25 @@
     border-bottom-right-radius: 20px;
     vertical-align: middle;
     border-left-width: 0px;
+    background-image: url('compress.png');
+    background-size: 32px 32px;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #link_message {
     display: inline;
+    margin-top: 28px;
+    font-size: 28px;
 }
 
 #link_copy {
     vertical-align: middle;
+    cursor: pointer;
+}
+
+#link_url_result {
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
