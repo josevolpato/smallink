@@ -2,7 +2,7 @@
 English | [Español](LEEME.md) | [Português brasileiro](LEIAME.md)
 
 ## Description
-URL shortener implemented in Ruby on Rails 8 as simply as possible.
+URL shortener implemented in Ruby on Rails 8 as simple as possible.
 
 ## Building and running the application
 1. Install [ruby](https://www.ruby-lang.org/pt/downloads/)
